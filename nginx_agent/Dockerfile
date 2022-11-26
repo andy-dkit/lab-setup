@@ -9,7 +9,7 @@ RUN apk add openjdk11
 RUN apk add git
 RUN apk add openssh
 
-COPY entrypoint.sh /
+COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 # add jenkins usser
