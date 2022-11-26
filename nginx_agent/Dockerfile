@@ -10,6 +10,7 @@ RUN apk add git
 RUN apk add openssh
 
 COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
 
 # add jenkins usser
 RUN adduser -h /usr/share/jenkins jenkins; echo 'jenkins:jenkins' | chpasswd
