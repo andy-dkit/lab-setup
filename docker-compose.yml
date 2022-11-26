@@ -1,0 +1,39 @@
+version: "3.9"
+
+services:
+  jenkins:
+    image: jenkins/jenkins:alpine-jdk11
+    ports:
+      - 8080:8080
+      - 50000:50000
+    environment:
+      # JAVA_OPTS: -Djenkins.install.runSetupWizard=false
+      JENKINS_OPTS: --argumentsRealm.roles.user=admin --argumentsRealm.passwd.admin=admin --argumentsRealm.roles.admin=admin
+
+  #nginx_tst:
+  #  image: nginx:latest
+  #  ports:
+  #    - 8081:80
+  #  expose:
+  #    - 22:22
+  #nginx_prd1:
+  #  image: nginx:latest
+  #  ports:
+  #    - 8082:80
+  #  expose:
+  #    - 20:20
+  #nginx_tst2:
+  #  image: nginx:stable-alpine
+  #  ports:
+  #      - 8082:80
+  #  expose:
+  #    - 22:22
+  #  tty: true
+  nginx_tst3:
+    build: ./nginx_agent
+    ports:
+        - 8083:80
+    expose:
+      - 22:22
+    tty: true  
+  
